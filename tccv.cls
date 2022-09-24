@@ -128,11 +128,12 @@
 \newenvironment{eventlist}{%
     \newcommand*\inskip{}
     \renewcommand\item[3]{%
+    \vbox{
 	\inskip%
 	{\raggedleft\textsc{##1}\\[1pt]}
 	{##2}\\[2pt]
 	{\Large\textit{##3}}
-	\medskip
+	\medskip}
 	\renewcommand\inskip{\bigskip}}}
     {\bigskip}
 
