@@ -1,5 +1,5 @@
 # Jsonresume2latex
-This project converts a jsonresume to a pdf resume. See [cv.pdf](cv.pdf) for an example output.
+This project converts a jsonresume to a pdf resume. See [resume.pdf](resume.pdf) for an example output.
 It uses the resume template  by 2012  Nicola Fontana <ntd at entidi.it>.
 
 ## Usage
