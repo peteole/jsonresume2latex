@@ -114,7 +114,7 @@
     \begin{tabularx}{\boxwidth}{c|X}
     \Telefon     & {#2}\smallskip\\
     \Letter      & \href{mailto:#3}{#3}
-    \ifstrempty{#1}{}{\smallskip\\ \Lightning & \href{http://#1}{#1}}
+    \ifstrempty{#1}{}{\smallskip\\ \Lightning & \href{#1}{#1}}
     \end{tabularx}}}
 
 % Every \item can be followed by one or more paragraphs
