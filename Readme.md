@@ -5,7 +5,7 @@ It uses the resume template  by 2012  Nicola Fontana <ntd at entidi.it>.
 ## Usage
 Start the conversion server:
 ```
-docker run -p 8080:8080 -d olepetersen/jsonresume2latex:0.2.1
+docker run -p 8080:8080 -d olepetersen/jsonresume2latex:0.2.2
 ```
 Now use the conversion api:
 ```
