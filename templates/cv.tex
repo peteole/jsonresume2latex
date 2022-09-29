@@ -1,0 +1,99 @@
+\documentclass{tccv}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+
+\hypersetup{
+    colorlinks=false,
+    hidelinks
+}
+\begin{document}
+
+    
+\part{ {{basics.name}} }
+\personal[ {{basics.url}} ]
+          { {{basics.phone}} }{ {{basics.email}} }
+\section{Education}
+\begin{eventlist}
+
+{% for e in education %}
+\item{ {{e.startDate}} -- {{e.endDate or "now"}} }
+	{ {{"\\href{"+e.url+"}{"+e.institution+"}" if e.url else e.institution}} }
+	{ {{e.studyType}} {{e.area}}}
+
+    Score: {{e.score}}
+{% endfor %}
+
+\end{eventlist}
+\section{Skills}
+\begin{factlist}
+
+{% for r in reordered_skills %}
+\item{ {{r.level}} }
+	 { {{', '.join(r.names)}} }
+{% endfor %}
+\item{Languages}
+	 { {{languages|map(attribute='language')|join(', ')}} }
+
+\end{factlist}
+
+\section{Jobs and Internships}
+\begin{eventlist}
+{% for w in work %}
+\item{ {{w.startDate}} -- {{w.endDate or "now"}} }
+	{ {{w.position}} }
+	{ {{"\\href{"+w.url+"}{"+w.name+"}" if w.url else w.name}} }
+
+	{{w.summary}} 
+	{{w.description}}
+{% if 'highlights' in w %}
+	{% for h in w.highlights %}
+
+	- {{h}}
+	{% endfor %}
+{% endif %}
+{% endfor %}
+
+{% for v in volunteer %}
+\item{ {{v.startDate}} -- {{v.endDate or "now"}} }
+	{ {{v.position}} }
+	{ {{"\\href{"+v.url+"}{"+v.organization+"}" if v.url else v.organization}} }
+
+	{{v.summary}} 
+	{{v.description}}
+{% endfor %}
+
+\end{eventlist}
+
+
+\section{Awards}
+
+\begin{eventlist}
+{% for a in awards %}
+\item{ {{a.date}} }
+	{ {{a.title}} }
+	{ {{"\\href{"+a.url+"}{"+a.awarder+"}" if a.url else a.awarder}} }
+
+	{{a.summary}} 
+{% endfor %}
+\end{eventlist}
+
+\section{Personal Projects}
+\begin{eventlist}
+     
+{% for p in projects %}
+\item{ {{p.startDate}} -- {{p.endDate or "now"}} }
+	{ {{', '.join(p.keywords) or "..."}} }
+	{ {{"\\href{"+p.url+"}{"+p.name+"}" if p.url else p.name}} }
+
+	{{p.description}} 
+{% endfor %}	
+
+\end{eventlist}
+
+\section{Other Interests}
+\begin{itemize}
+{% for i in interests %}
+\item {{i.name}}
+{% endfor %}
+\end{itemize}
+\end{document}
